@@ -41,7 +41,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 		static $omise_Loaded = false;
 
 		if ( ! $omise_Loaded ) {
-			require_once MS_Plugin::instance()->dir . '/lib/omise-php/lib/omise.php';
+			// require_once MS_Plugin::instance()->dir . '/lib/omise-php/lib/omise.php';
 
 			do_action(
 				'ms_gateway_omise_load_omise_lib_after',
@@ -54,7 +54,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 		$this->_gateway = $gateway;
 
 		$secret_key = $this->_gateway->get_secret_key();
-		M2_omise::setApiKey( $secret_key );
+		OmiseCharge::setApiKey( $secret_key );
 	}
 
 	/**
@@ -201,7 +201,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
                     $currency
                 );
                 
-		$charge = M2_omise_Charge::create(
+		$charge = OmiseCharge::create(
 			array(
 				'customer' => $customer->id,
 				'amount' => intval( $amount * 100 ), // Amount in cents!
@@ -442,3 +442,4 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 		return $key;
 	}
 }
+//https://www.omise.co/customers-api

@@ -55,6 +55,7 @@ class MS_Gateway_Omise_View_Button extends MS_View {
 
 		ob_start();
 		?>
+		
 		<form action="<?php echo esc_url( $action_url ); ?>" method="post">
 			<?php
 			foreach ( $fields as $field ) {
