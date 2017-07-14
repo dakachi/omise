@@ -10,8 +10,8 @@
 
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 
-define('OMISE_PUBLIC_KEY', 'pkey_test_58lpgvlp7uulsxiyf72');
-define('OMISE_SECRET_KEY', 'skey_test_58lpgvlprrfxthnku0v');
+// define('OMISE_PUBLIC_KEY', 'pkey_test_58lpgvlp7uulsxiyf72');
+// define('OMISE_SECRET_KEY', 'skey_test_58lpgvlprrfxthnku0v');
 
 function omise_load_lib() {
     require_once dirname(__FILE__) . '/omise/class-ms-gateway-omise.php';
