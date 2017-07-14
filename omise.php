@@ -8,7 +8,9 @@
  * @package Membership2
  */
 
-require_once dirname(__FILE__) . '/vendor/autoload.php';
+// require_once dirname(__FILE__) . '/vendor/autoload.php';
+
+require_once dirname(__FILE__) . '/omise-php/lib/Omise.php';
 
 // define('OMISE_PUBLIC_KEY', 'pkey_test_58lpgvlp7uulsxiyf72');
 // define('OMISE_SECRET_KEY', 'skey_test_58lpgvlprrfxthnku0v');
