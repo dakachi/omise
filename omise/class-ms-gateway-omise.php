@@ -204,12 +204,10 @@ class MS_Gateway_Omise extends MS_Gateway {
 			$note, // Descriptive text
 			$external_id // External ID
 		);
-		echo "<pre>";
-		print_r($error);
-		echo "</pre>";
-		// if ( $error ) {
-		// 	throw $e;
-		// }
+		
+		if ( $error ) {
+			throw $e;
+		}
 
 		return apply_filters(
 			'ms_gateway_omise_process_purchase',
@@ -258,9 +256,9 @@ class MS_Gateway_Omise extends MS_Gateway {
 							$invoice->currency,
 							$invoice->name
 						);
-						$external_id = $charge->id;
+						$external_id = $charge->offsetGet('id');
 
-						if ( true == $charge->paid ) {
+						if ( true == $charge->offsetGet('paid') ) {
 							$was_paid = true;
 							$invoice->pay_it( self::ID, $external_id );
 							$note = __( 'Payment successful', 'membership2' );

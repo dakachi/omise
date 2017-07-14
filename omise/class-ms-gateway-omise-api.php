@@ -236,9 +236,8 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 	 * @return M2_omise_Subscription|false The resulting charge object.
 	 */
 	public function get_subscription( $customer, $membership ) {
-		$plan_id = OmiseScheduleList::get_the_id(
-			$membership->id,
-			'plan'
+		$plan_id = OmiseScheduleList::retrieve(
+			$membership->id
 		);
 
 		/*
@@ -288,9 +287,8 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 	 */
 	public function subscribe( $customer, $invoice ) {
 		$membership = $invoice->get_membership();
-		$plan_id = OmiseScheduleList::get_the_id(
-			$membership->id,
-			'plan'
+		$plan_id = OmiseScheduleList::retrieve(
+			$membership->id
 		);
 
 		$subscription = self::get_subscription( $customer, $membership );
@@ -306,9 +304,8 @@ class MS_Gateway_Omise_Api extends MS_Model_Option {
 				$tax_percent = floatval( $invoice->tax_rate );
 			}
 			if ( $invoice->coupon_id ) {
-				$coupon_id = OmiseScheduleList::get_the_id(
-					$invoice->coupon_id,
-					'coupon'
+				$coupon_id = OmiseScheduleList::retrieve(
+					$invoice->coupon_id
 				);
 			}
 
