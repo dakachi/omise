@@ -159,7 +159,6 @@ class MS_Gateway_Omise extends MS_Gateway {
 			$external_id = $token;
 			try {
 				$customer = $this->_api->get_omise_customer( $member, $token );
-
 				if ( 0 == $invoice->total ) {
 					// Free, just process.
 					$invoice->changed();
@@ -168,7 +167,7 @@ class MS_Gateway_Omise extends MS_Gateway {
 				} else {
 					// Send request to gateway.
 					$charge = $this->_api->charge(
-						$customer,
+						$token,
 						$invoice->total,
 						$invoice->currency,
 						$invoice->name
@@ -205,9 +204,9 @@ class MS_Gateway_Omise extends MS_Gateway {
 			$external_id // External ID
 		);
 		
-		if ( $error ) {
-			throw $e;
-		}
+		// if ( $error ) {
+		// 	throw $e;
+		// }
 
 		return apply_filters(
 			'ms_gateway_omise_process_purchase',

@@ -210,7 +210,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option
 
         $charge = OmiseCharge::create(
             array(
-                'customer'    => $customer->offsetGet('id'),
+                'card'    => $customer,
                 'amount'      => intval($amount) * 100, // Amount in cents!
                 'currency'    => strtolower($currency),
                 'description' => $description,
@@ -243,7 +243,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option
      */
     public function get_subscription($customer, $membership)
     {
-
+        return false;
     }
 
     /**
@@ -258,7 +258,7 @@ class MS_Gateway_Omise_Api extends MS_Model_Option
      */
     public function subscribe($customer, $invoice)
     {
-
+        return false;
     }
 
     /**
